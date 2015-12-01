@@ -91,10 +91,15 @@
 
 
         closeBt.click(function(event) {
-            event.preventDefault();
+         
             $('body, html').css({'overflow':'auto'});
+            
+            if (this.href) return true;
+            
+            event.preventDefault();
 
             settings.beforeClose(); //beforeClose
+            
             if (id.hasClass(settings.modalTarget+'-on')) {
                 id.removeClass(settings.modalTarget+'-on');
                 id.addClass(settings.modalTarget+'-off');
